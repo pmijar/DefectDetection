@@ -17,6 +17,7 @@ The main aim of this project is to create a deep learning model that can accurat
 ### Dataset  
 Our dataset is made up of 7,095 images of steel sheets, each labeled with the specific type of defect. We’ll divide the dataset into training and validation sets. To prepare the images, we normalize the dataset by scaling the integer values down (by dividing by 255).  
 Source: https://www.kaggle.com/competitions/severstal-steel-defect-detection/data
+_Notes: Please note that only limited image files were uploaded in the data, Use the kaggle data set for the entire data to run against the attached jupyter notebook_
 
 ### Data Augmentation
 Due to the limited size of the dataset, data augmentation is applied to increase the size and diversity of the training data. Data augmentation applied are as follows:
