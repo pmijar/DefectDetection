@@ -36,10 +36,33 @@ The program compares multiple deep learning models to find the one that best per
  * __EfficientNetB0__
  * __Xception__
 
+Additioanlly, The top custom layers added to the pre-trained model are as follows:
 
-Each model is trained and evaluated using the same dataset, and accuracy performance metrics were used for comparison across each of the selected models.
+#### Layer-1 
+* __Conv2D Layer:__ We start with a 2D convolutional layer featuring 32 filters and a kernel size of 3, which processes the output from the base model. Next, we have:
+* __BatchNormalization:__ This step normalizes the activations from the previous layer.
+* __Activation ("ReLU"):__ Here, we apply the ReLU activation function to introduce non-linearity.
+* __MaxPooling2D:__ A max pooling operation is performed with a pool size of 3 and a stride of 2, which helps to downsample the feature maps.
 
- Model training accuracy and loss Stats
+#### Layer-2
+* __Conv2D Layer:__ Another convolutional layer with 64 filters and a smaller kernel size of 2, followed by:
+* __BatchNormalization__
+* __Activation ("ReLU")__
+* __MaxPooling2D:__ This layer uses a pool size of 2 and a stride of 1 to further downsample the feature maps.
+* __Dropout Layer:__ To reduce overfitting, added a dropout layer with a rate of 0.2, which randomly sets 20% of the activations to zero during training.
+* __BatchNormalization:__ Additional normalization after the dropout layer.
+* __Flatten Layer:__ This layer flattens the feature maps into a one-dimensional vector, feeding the fully connected Dense layer.
+
+#### Dense Layer: There are two fully connected (dense) layers:
+* The first dense layer consists of 256 neurons with ReLU activation.
+* The second dense layer has 128 neurons, also with ReLU activation.
+
+#### Output Layer: 
+* The last dense layer generates the output, corresponding to the number of defect classes, utilizing the softmax activation function to classify into multiple categories.
+
+Each of these models are trained and evaluated using the same dataset, with accuracy performance metrics used for comparison across each of the selected models.
+
+ Model training accuracy and loss Stats:
 ```
  Results for InceptionV3:
  * Training Accuracy: 0.8211768865585327
@@ -65,7 +88,7 @@ Results for Xception:
 ![Training Loss](images/TrainingModels_Loss.png)
 
 #### Fine-tuning
-Applied the fine-tuning to improve the model's performance further. Fine-tuning consists of:
+Further applied the fine-tuning to improve the model's performance. Fine-tuning consisted of:
  * Unfreezing the deep learning models from layer = 50
  * Adjusting the learning rate = 0.0001
  * Early stopping
@@ -96,4 +119,4 @@ Results for Xception:
 ![Fine-tuned Loss](images/FineTunedModels_Loss.png)
 
 ### Results
-Of the three training models that we identified for training and fine-tuning, we found that deep learning Xception performed that best with respect to accuracy and loss.
+Of the three pretrained models that we identified for training and fine-tuning, we found that Xception model performed the best with respect to accuracy and loss.
