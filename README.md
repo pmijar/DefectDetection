@@ -37,11 +37,61 @@ The program compares multiple deep learning models to find the one that best per
 
 Each model is trained and evaluated using the same dataset, and accuracy performance metrics were used for comparison across each of the selected models.
 
+ Model training accuracy and loss Stats
+```
+ Results for InceptionV3:
+ * Training Accuracy: 0.8211768865585327
+ * Validation Accuracy: 0.816067636013031
+ * Training Loss: 0.42351657152175903
+ * Validation Loss: 0.4630342125892639
+
+
+Results for EfficientNetB0:
+ * Training Accuracy: 0.724277675151825
+ * Validation Accuracy: 0.7322058081626892
+ * Training Loss: 0.8725362420082092
+ * Validation Loss: 0.85508131980896
+
+
+Results for Xception:
+ * Training Accuracy: 0.8282241225242615
+ * Validation Accuracy: 0.8379140496253967
+ * Training Loss: 0.3997619152069092
+ * Validation Loss: 0.42924144864082336
+```
+![Training Accuracy](images/TrainingModels_Accuracy.png)
+![Training Loss](images/TrainingModels_Loss.png)
+
 #### Fine-tuning
 Applied the fine-tuning to improve the model's performance further. Fine-tuning consists of:
  * Unfreezing the deep learning models from layer = 50
  * Adjusting the learning rate = 0.0001
  * Early stopping
+
+ Model Fine-tuning accuracy and loss Stats
+
+```
+ Results for InceptionV3:
+ * Fine tuned Training Accuracy: 0.8801973462104797
+ * Fine tuned Validation Accuracy: 0.858350932598114
+ * Fine tuned Training Loss: 0.29150131344795227
+ * Fine tuned Validation Loss: 0.3806813061237335
+
+Results for EfficientNetB0:
+ * Fine tuned Training Accuracy: 0.7943974733352661
+ * Fine tuned Validation Accuracy: 0.7575757503509521
+ * Fine tuned Training Loss: 0.48865455389022827
+ * Fine tuned Validation Loss: 0.69825279712677
+
+
+Results for Xception:
+ * Fine tuned Training Accuracy: 0.8904157876968384
+ * Fine tuned Validation Accuracy: 0.8618745803833008
+ * Fine tuned Training Loss: 0.2580391466617584
+ * Fine tuned Validation Loss: 0.3762108385562897
+ ```
+ ![Fine-tuned Accuracy](images/FineTunedModels_Accuracy.png)
+![Fine-tuned Loss](images/FineTunedModels_Loss.png)
 
 ### Results
 Of the three training models that we identified for training and fine-tuning, we found that deep learning Xception performed that best. 
