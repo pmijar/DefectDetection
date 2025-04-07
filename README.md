@@ -16,7 +16,7 @@ The project involves comparing different deep learning models, and fine-tuning t
 The main aim of this project is to create a deep learning model that can accurately identify defects in steel sheets. Models will be using a relatively small available dataset of 7,095 labeled images,we will be employing techniques like data augmentation, model comparison, and fine-tuning to improve its accuracy.
 
 ### Dataset  
-Our dataset is made up of 7,095 images of steel sheets, each labeled with the specific type of defect, the defect class range from 1 through 4. The dataset will be divived into training and validation sets. During data prep, the image pixel value of dataset is normalized (by dividing by 255). 
+Our dataset is made up of 7,095 images of steel sheets, each labeled with the specific type of defect, the defect class range from 1 through 4. The dataset will be divided into training and validation sets. During data prep, the image pixel value of dataset is normalized (dividing by 255). 
 
 Dataset Source: https://www.kaggle.com/competitions/severstal-steel-defect-detection/data
 _Notes: Please note that only limited image files were uploaded in the data, Use the kaggle data set for the entire data to run against the attached jupyter notebook_
