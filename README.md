@@ -1,7 +1,7 @@
 ## DefectDetection
 
 ### Overview  
-This program is designed to spot defects in steel sheets using deep learning techniques. We’re working with a training dataset that includes 7,095 images, and we’re applying data augmentation to boost both the size and variety of this dataset. The project involves comparing different deep learning architectures, and we’ll be fine-tuning the selected model to enhance its performance.
+This program is designed to spot defects in steel sheets using deep learning techniques.This is a classification problem by trying to find the class[1, 2, 3, 4] of defect based on the image captured. We’re working with a training dataset that includes 7,095 images, and we’re applying data augmentation to boost both the size and variety of this dataset. The project involves comparing different deep learning architectures, and we’ll be fine-tuning the selected model to enhance its performance.
 
 ### Contents  
 1. Objective  
@@ -12,28 +12,30 @@ This program is designed to spot defects in steel sheets using deep learning tec
 6. Results  
 
 ### Objective  
-The main aim of this project is to create a deep learning model that can accurately identify defects in steel sheets. We’ll train the model using a relatively small dataset of 7,095 labeled images, employing techniques like data augmentation, model comparison, and fine-tuning to improve its accuracy.
+The main aim of this project is to create a deep learning model that can accurately identify defects in steel sheets. We’ll train the model using a relatively small available dataset of 7,095 labeled images, employing techniques like data augmentation, model comparison, and fine-tuning to improve its accuracy.
 
 ### Dataset  
-Our dataset is made up of 7,095 images of steel sheets, each labeled with the specific type of defect. We’ll divide the dataset into training and validation sets. To prepare the images, we normalize the dataset by scaling the integer values down (by dividing by 255).  
-Source: https://www.kaggle.com/competitions/severstal-steel-defect-detection/data
+Our dataset is made up of 7,095 images of steel sheets, each labeled with the specific type of defect, the defect class range from 1 through 4. We’ll divide the dataset into training and validation sets. To prepare the images, we normalize the dataset by normalizing the pixel values (by dividing by 255). 
+
+Dataset Source: https://www.kaggle.com/competitions/severstal-steel-defect-detection/data
 _Notes: Please note that only limited image files were uploaded in the data, Use the kaggle data set for the entire data to run against the attached jupyter notebook_
 
 ### Data Augmentation
 Due to the limited size of the dataset, data augmentation is applied to increase the size and diversity of the training data. Data augmentation applied are as follows:
 
-*	rescale=1./255: This step normalizes the pixel values by scaling them down to a range between 0 and 1.
-*	shear_range=0.2: It applies random shear transformations to the images, allowing for variations within a 0.2 range. 
-*   zoom_range=0.2: This feature randomly zooms in or out on the images, giving a variation of up to 20%.*  
-*   horizontal_flip=True: It randomly flips images horizontally to enhance augmentation. 
-*   vertical_flip=True: This option randomly flips images vertically for added variety. 
-*   brightness_range=[0.8, 1.2]: It adjusts the brightness of the images randomly, ranging from 80% to 120% of the original brightness.
+*	__rescale=1./255:__ This step normalizes the pixel values by scaling them down to a range between 0 and 1.
+*	__shear_range=0.2:__ It applies random shear transformations to the images, allowing for variations within a 0.2 range. 
+*   __zoom_range=0.2:__ This feature randomly zooms in or out on the images, giving a variation of up to 20%.*  
+*   __horizontal_flip=True:__ It randomly flips images horizontally to enhance augmentation. 
+*   __vertical_flip=True:__ This option randomly flips images vertically for added variety. 
+*   __brightness_range=[0.8, 1.2]:__ It adjusts the brightness of the images randomly, ranging from 80% to 120% of the original brightness.
 
 ### Model Comparison
 The program compares multiple deep learning models to find the one that best performs on the steel defect detection task. Models tested include:
- * InceptionV3
- * EfficientNetB0
- * Xception
+ * __InceptionV3__
+ * __EfficientNetB0__
+ * __Xception__
+
 
 Each model is trained and evaluated using the same dataset, and accuracy performance metrics were used for comparison across each of the selected models.
 
@@ -94,4 +96,4 @@ Results for Xception:
 ![Fine-tuned Loss](images/FineTunedModels_Loss.png)
 
 ### Results
-Of the three training models that we identified for training and fine-tuning, we found that deep learning Xception performed that best. 
+Of the three training models that we identified for training and fine-tuning, we found that deep learning Xception performed that best with respect to accuracy and loss.
